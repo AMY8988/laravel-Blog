@@ -1,0 +1,21 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700&display=swap');
+
+
+// Variables
+@import 'variables';
+@import "bootstrap-icons/font/bootstrap-icons.css";
+@import "font-awesome/scss/font-awesome";
+
+// Bootstrap
+@import 'bootswatch/dist/morph/bootstrap.min.css';
+@import 'bootstrap/scss/bootstrap';
+
+.breadcrumb{
+    a{
+        text-decoration: none !important;
+        color: #2d3748 !important;
+        font-weight: bolder !important;
+    }
+}
+
