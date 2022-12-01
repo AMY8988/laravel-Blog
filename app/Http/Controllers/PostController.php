@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
+use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+
 
 
 class PostController extends Controller
@@ -26,7 +29,14 @@ class PostController extends Controller
 
     public function home()
     {
-        $posts = Post::all();
+        if (request('keyword')){
+            $posts = Post::when( request("keyword") , function ($query){
+                $keyword = request('keyword');
+                $query->where("title" , "like" , "%$keyword%")->orWhere( "description" , "like" , "%$keyword%");
+            })->get();
+        }else{
+            $posts = Post::all();
+        }
         return  view('home' ,compact('posts'));
     }
 

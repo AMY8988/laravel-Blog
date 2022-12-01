@@ -6,8 +6,15 @@
     </ol>
     <div class="card border border-0 bg-light  shadow" >
         <div class="card-body ">
-
-            <h4><i class="bi bi-bookmark-check-fill me-2"></i>Daily News</h4>
+           <div class="d-flex justify-content-between align-items-center">
+               <h4><i class="bi bi-bookmark-check-fill me-2"></i>Daily News</h4>
+               <form action="{{ route('home') }}" method="get" class="col-4">
+                   <div class="input-group mb-3">
+                       <input type="text" class="form-control p-2" value="{{ request('keyword') }}" name="keyword" placeholder="  Search posts information" >
+                       <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+                   </div>
+               </form>
+           </div>
         </div>
     </div>
     <div class="row vh-100 overflow-scroll">
